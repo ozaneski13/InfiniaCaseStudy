@@ -21,24 +21,30 @@ public abstract class Card : Draggable
 
     public abstract void Init(ECardType cardType);
 
-    public override void OnDragFinished(PointerEventData eventData)
+    public override bool OnDragFinished(PointerEventData eventData)
     {
         if (!playerCurrencyInventory.CanAfford(cost))
         {
             isDraggable = true;
             SetDefaultParent();
 
-            return;
+            return false;
         }
-
-        playerCurrencyInventory.Spent(cost);
-
-        OnCardUsed?.Invoke(this);
 
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(eventData.position);
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
+        { 
             Use(hit.point);
+
+            playerCurrencyInventory.Spent(cost);
+
+            OnCardUsed?.Invoke(this);
+
+            return true;
+        }
+
+        return false;
     }
 }

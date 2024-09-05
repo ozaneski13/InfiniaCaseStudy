@@ -1,0 +1,1 @@
+Emre bey selamlar. Umarım proje aradıklarınızı karşılar. 3rd party plugin olarak sadece Dotween kullandım. Buna ek olarak daha önce hiç yaşamadım ancak bu projede .gitignore ile problem yaşadım o yüzden pullarken .meta dosyaları da gelmiş olabilir, umarım kritik bir sorun oluşturmaz sizin için.

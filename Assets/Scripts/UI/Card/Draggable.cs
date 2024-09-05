@@ -48,9 +48,10 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
 
         if (eventData.pointerEnter.CompareTag("DropZone"))
         {
-            isDraggable = false;
-
-            OnDragFinished(eventData);
+            if (!OnDragFinished(eventData))
+                SetDefaultParent();
+            else
+                isDraggable = false;
         }
 
         else
@@ -64,8 +65,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
         transform.SetParent(parentToReturn);
     }
 
-    public virtual void OnDragFinished(PointerEventData eventData)
+    public virtual bool OnDragFinished(PointerEventData eventData)
     {
-
+        return false;
     }
 }
