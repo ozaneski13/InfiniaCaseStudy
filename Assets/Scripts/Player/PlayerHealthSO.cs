@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealthSO : MonoBehaviour
+[CreateAssetMenu(fileName = "PlayerHealthSO", menuName = "Scriptable Objects/PlayerHealthSO", order = 4)]
+public class PlayerHealthSO : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private int health = 3;
+    public int Health => health;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] private VoidEventSO loseEventSO;
+
+    public void TakeDamage()
     {
-        
+        health--;
+
+        if (health == 0)
+            loseEventSO.FireEvent();
     }
 }
