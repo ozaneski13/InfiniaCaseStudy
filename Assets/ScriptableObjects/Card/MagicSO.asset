@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 429f374d17aa22d4aa893cd4b96ae009, type: 3}
+  m_Name: MagicSO
+  m_EditorClassIdentifier: 
+  magicSettings:
+  - type: 0
+    magicPrefab: {fileID: 3127415754600982539, guid: ce2e37f9ea7978b409105d4cdba59a5e, type: 3}
+    damage: 100
+    radius: 1
+  - type: 1
+    magicPrefab: {fileID: 4607009558980821144, guid: f64f1a12aa3a4a74dab445e849bd7f6f, type: 3}
+    damage: 50
+    radius: 3
