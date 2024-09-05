@@ -314,7 +314,7 @@ GameObject:
   - component: {fileID: 382720786}
   - component: {fileID: 382720785}
   - component: {fileID: 382720787}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: EnemyRoad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -454,7 +454,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_UseGeometry: 0
-  m_DefaultArea: 3
+  m_DefaultArea: 0
   m_GenerateLinks: 0
   m_IgnoreNavMeshAgent: 1
   m_IgnoreNavMeshObstacle: 1
@@ -650,7 +650,7 @@ GameObject:
   - component: {fileID: 737562950}
   - component: {fileID: 737562949}
   - component: {fileID: 737562953}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: EnemySide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -919,7 +919,7 @@ GameObject:
   - component: {fileID: 1178461299}
   - component: {fileID: 1178461298}
   - component: {fileID: 1178461302}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FriendlyRoad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1059,7 +1059,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_UseGeometry: 0
-  m_DefaultArea: 4
+  m_DefaultArea: 0
   m_GenerateLinks: 0
   m_IgnoreNavMeshAgent: 1
   m_IgnoreNavMeshObstacle: 1
@@ -1531,7 +1531,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2034436403}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
