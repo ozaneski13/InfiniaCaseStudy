@@ -15,6 +15,8 @@ public class MagicCard : Card
 
     public override void Use(Vector3 pos)
     {
-
+        GameObject go = MagicPoolController.Instance.GetMagicByType(magicType);
+        go.SetActive(true);
+        go.transform.position = pos;
     }
 }

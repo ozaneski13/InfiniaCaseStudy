@@ -18,13 +18,16 @@ MonoBehaviour:
     health: 100
     damage: 10
     range: 2
+    attackInterval: 3
   - type: 1
     spawnPrefab: {fileID: 4437177679834989239, guid: 29e6d7b06ba34694b924cc793a7de77a, type: 3}
     health: 50
     damage: 20
     range: 1
+    attackInterval: 2
   - type: 2
     spawnPrefab: {fileID: 7162779295069041587, guid: 073b2507bbcb59d4299ad47fb2d75495, type: 3}
     health: 50
     damage: 10
     range: 5
+    attackInterval: 1

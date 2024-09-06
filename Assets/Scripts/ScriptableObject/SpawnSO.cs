@@ -20,6 +20,9 @@ public class SpawnSettings
 
     [SerializeField] private int range;
     public int Range => range;
+
+    [SerializeField] private float attackInterval;
+    public float AttackInterval => attackInterval;
 }
 
 [CreateAssetMenu(fileName = "SpawnSO", menuName = "Scriptable Objects/SpawnSO", order = 1)]

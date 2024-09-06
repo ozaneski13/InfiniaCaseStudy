@@ -30,7 +30,7 @@ public class DeckController : MonoBehaviour
 
             goToCreate = cardTypeSO.GetCardSettingsByCardType(cardType).CardPrefab;
 
-            GameObject cardGO = Instantiate(goToCreate);
+            GameObject cardGO = Instantiate(goToCreate, cardHolder);
             Card card = cardGO.GetComponent<Card>();
 
             card.Init(cardType);

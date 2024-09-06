@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class SpawnCard : Card
 {
+    //[SerializeField] private PoolHolder pool;
     private SpawnSettings settings;
 
     private ESpawnType spawnType;
@@ -15,6 +16,10 @@ public class SpawnCard : Card
 
     public override void Use(Vector3 pos)
     {
+        GameObject go = SpawnPoolController.Instance.GetSpawnByType(spawnType);
+        go.SetActive(true);
+        go.transform.position = pos;
 
+        go.GetComponent<Soldier>().SetAffiliate(true);
     }
 }
