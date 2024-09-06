@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 0.8, y: 2, z: 0.8}
+  m_LocalScale: {x: 6.4, y: 16, z: 6.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 981782916627380777}
@@ -121,9 +121,29 @@ PrefabInstance:
       propertyPath: meshRenderer
       value: 
       objectReference: {fileID: 7993485121925222505}
+    - target: {fileID: 3282973431607199367, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282973431607199367, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6399934073876932295, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
       propertyPath: m_Name
       value: Knight
+      objectReference: {fileID: 0}
+    - target: {fileID: 9000016776213483222, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9000016776213483222, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9000016776213483222, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9000016776213483222, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
       propertyPath: m_LocalPosition.x

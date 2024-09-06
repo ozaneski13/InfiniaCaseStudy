@@ -13,11 +13,15 @@ MonoBehaviour:
   m_Name: MagicSO
   m_EditorClassIdentifier: 
   magicSettings:
-  - type: 0
-    magicPrefab: {fileID: 3127415754600982539, guid: ce2e37f9ea7978b409105d4cdba59a5e, type: 3}
+  - prefab: {fileID: 3127415754600982539, guid: ce2e37f9ea7978b409105d4cdba59a5e, type: 3}
+    cost: 5
+    sprite: {fileID: 21300000, guid: 64cc5cc2aeadaf84f9eba6ccd4efb855, type: 3}
+    type: 0
     damage: 100
     radius: 1
-  - type: 1
-    magicPrefab: {fileID: 4607009558980821144, guid: f64f1a12aa3a4a74dab445e849bd7f6f, type: 3}
+  - prefab: {fileID: 4607009558980821144, guid: f64f1a12aa3a4a74dab445e849bd7f6f, type: 3}
+    cost: 5
+    sprite: {fileID: 21300000, guid: 414f7374a764be444ba2a92a14a4f8f5, type: 3}
+    type: 1
     damage: 50
     radius: 3

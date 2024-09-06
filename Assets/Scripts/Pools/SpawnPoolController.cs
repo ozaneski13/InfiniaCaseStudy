@@ -32,7 +32,7 @@ public class SpawnPoolController : Pool
 
         for (int i = 0; i < poolSize - spawnList.Count; i++)
         {
-            GameObject spawn = Instantiate(spawnSettings.SpawnPrefab, poolParent);
+            GameObject spawn = Instantiate(spawnSettings.Prefab, poolParent);
             spawn.SetActive(false);
 
             spawnList.Add(spawn);
@@ -50,9 +50,11 @@ public class SpawnPoolController : Pool
         return spawn;
     }
 
-    public void RefillPool(ESpawnType type, GameObject spawn)
+    public bool RefillPool(ESpawnType type, GameObject spawn)
     {
         spawn.SetActive(false);
         spawnPool[type].Add(spawn);
+
+        return true;
     }
 }

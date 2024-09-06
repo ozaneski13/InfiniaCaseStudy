@@ -4,13 +4,23 @@ using System.Linq;
 using UnityEngine;
 
 [Serializable]
-public class SpawnSettings
+public class Settings
+{
+    [SerializeField] private GameObject prefab;
+    public GameObject Prefab => prefab;
+
+    [SerializeField] private int cost;
+    public int Cost => cost;
+
+    [SerializeField] private Sprite sprite;
+    public Sprite Sprite => sprite;
+}
+
+[Serializable]
+public class SpawnSettings: Settings
 {
     [SerializeField] private ESpawnType type;
     public ESpawnType Type => type;
-
-    [SerializeField] private GameObject spawnPrefab;
-    public GameObject SpawnPrefab => spawnPrefab;
 
     [SerializeField] private int health;
     public int Health => health;

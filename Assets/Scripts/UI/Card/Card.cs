@@ -1,29 +1,37 @@
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public abstract class Card : Draggable
 {
     [SerializeField] protected CardTypeSO cardTypeSO;
+    [SerializeField] private DeckLockSO deckLockSO;
     [SerializeField] private PlayerCurrencyInventory playerCurrencyInventory;
 
-    [SerializeField] private LayerMask layerMask;
-    public Action<Card> OnCardUsed;
+    [SerializeField] private Image cardImg;
 
-    private int cost;
+    [SerializeField] private LayerMask layerMask;
+
+    protected Settings settings;
+
+    public Action<Card> OnCardUsed;
 
     public abstract void Use(Vector3 pos);
 
     public void ActivateVisual()
     {
-
+        cardImg.sprite = settings.Sprite;
     }
 
     public abstract void Init(ECardType cardType);
 
     public override bool OnDragFinished(PointerEventData eventData)
     {
-        if (!playerCurrencyInventory.CanAfford(cost))
+        if (deckLockSO.IsLocked)
+            return false;
+
+        if (!playerCurrencyInventory.CanAfford(settings.Cost))
         {
             isDraggable = true;
             SetDefaultParent();
@@ -38,11 +46,14 @@ public abstract class Card : Draggable
         { 
             Use(hit.point);
 
-            playerCurrencyInventory.Spent(cost);
+            playerCurrencyInventory.Spent(settings.Cost);
 
             OnCardUsed?.Invoke(this);
 
-            return true;
+            if (this is MagicCard)
+                return MagicPoolController.Instance.RefillPool((settings as MagicSettings).Type, gameObject);
+            else
+                return SpawnPoolController.Instance.RefillPool((settings as SpawnSettings).Type, gameObject);
         }
 
         return false;

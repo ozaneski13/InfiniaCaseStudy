@@ -32,7 +32,7 @@ public class MagicPoolController : Pool
 
         for (int i = 0; i < poolSize - magicList.Count; i++)
         {
-            GameObject magic = Instantiate(magicSettings.MagicPrefab, poolParent);
+            GameObject magic = Instantiate(magicSettings.Prefab, poolParent);
             magic.SetActive(false);
 
             magicList.Add(magic);
@@ -50,9 +50,11 @@ public class MagicPoolController : Pool
         return spawn;
     }
 
-    public void RefillPool(EMagicType type, GameObject magic)
+    public bool RefillPool(EMagicType type, GameObject magic)
     {
         magic.SetActive(false);
         magicPool[type].Add(magic);
+
+        return true;
     }
 }

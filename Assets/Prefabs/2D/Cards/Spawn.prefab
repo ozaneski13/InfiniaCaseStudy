@@ -124,7 +124,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 200297555745210347}
   cardTypeSO: {fileID: 11400000, guid: b220e754e90be8f40acb04fd00839796, type: 2}
+  deckLockSO: {fileID: 11400000, guid: 0a482551076bca0448b4bf6e685f39f2, type: 2}
   playerCurrencyInventory: {fileID: 11400000, guid: 6185e1c52b8b8fa489fe80647e63a4f8, type: 2}
+  cardImg: {fileID: 6324724137743584611}
   layerMask:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &6324724137743584611 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7198882889840904791, guid: a0660be6dd0885845bdb57f4a65e2fad, type: 3}
+  m_PrefabInstance: {fileID: 3756704467644401460}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758560573645688316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

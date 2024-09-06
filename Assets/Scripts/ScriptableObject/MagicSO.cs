@@ -4,13 +4,10 @@ using System.Linq;
 using UnityEngine;
 
 [Serializable]
-public class MagicSettings
+public class MagicSettings:Settings
 {
     [SerializeField] private EMagicType type;
     public EMagicType Type => type;
-
-    [SerializeField] private GameObject magicPrefab;
-    public GameObject MagicPrefab => magicPrefab;
 
     [SerializeField] private int damage;
     public int Damage => damage;

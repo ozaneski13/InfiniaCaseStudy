@@ -4,8 +4,6 @@ using UnityEngine;
 public class SpawnCard : Card
 {
     //[SerializeField] private PoolHolder pool;
-    private SpawnSettings settings;
-
     private ESpawnType spawnType;
 
     public override void Init(ECardType cardType)

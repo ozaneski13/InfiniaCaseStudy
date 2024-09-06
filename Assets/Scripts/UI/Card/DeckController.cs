@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 public class DeckController : MonoBehaviour
 {
     [SerializeField] private CardTypeSO cardTypeSO;
+    [SerializeField] private DeckLockSO deckLockSO;
 
     [SerializeField] private Transform cardHolder;
     [SerializeField] private int deckSize;
@@ -17,6 +19,8 @@ public class DeckController : MonoBehaviour
     private void Awake()
     {
         InitDeck();
+
+        handController.OnNeedRefill += FillHand;
     }
 
     private void InitDeck()
@@ -62,6 +66,8 @@ public class DeckController : MonoBehaviour
 
     private void FillHand()
     {
+        deckLockSO.SetLock(true);
+
         int neededCount = handController.NeededCardCount;
 
         if (neededCount == 0)
@@ -80,11 +86,14 @@ public class DeckController : MonoBehaviour
 
             deck.Remove(card);
 
-            //Play anim
-            yield return new WaitForSeconds(2f);
+            card.transform.DOMove(handController.MovePoint.position, 2f);
+            deck[0].gameObject.SetActive(true);
+            yield return new WaitForSeconds(3f);
 
             handController.Fill(card);
         }
+
+        deckLockSO.SetLock(false);
     }
 
     private void RePoolCard(Card card)
@@ -93,5 +102,10 @@ public class DeckController : MonoBehaviour
 
         card.gameObject.SetActive(false);
         deck.Add(card);
+    }
+
+    private void OnDestroy()
+    {
+        handController.OnNeedRefill -= FillHand;
     }
 }

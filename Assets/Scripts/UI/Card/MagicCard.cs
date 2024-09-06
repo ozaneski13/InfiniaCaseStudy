@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class MagicCard : Card
 {
-    private MagicSettings settings;
-
     private EMagicType magicType;
 
     public override void Init(ECardType cardType)
