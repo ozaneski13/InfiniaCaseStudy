@@ -272,3 +272,9 @@ MonoBehaviour:
   enemyMaterial: {fileID: 2100000, guid: ecf3ef6fdfb15f8449165ccb88e82c04, type: 2}
   friendlyMaterial: {fileID: 2100000, guid: 99513544d6cae694991335d75ea5bf30, type: 2}
   hitMaterial: {fileID: 2100000, guid: 7267768224b4b3d4b87f182f46baf77a, type: 2}
+  hitEffect: {fileID: 8846634810180248003}
+--- !u!2083052967 &8846634810180248003 stripped
+VisualEffect:
+  m_CorrespondingSourceObject: {fileID: 2269999806168892851, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
+  m_PrefabInstance: {fileID: 7297282437896283248}
+  m_PrefabAsset: {fileID: 0}

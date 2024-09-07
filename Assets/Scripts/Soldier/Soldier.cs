@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Soldier : Moveable, IAttackable
 {
@@ -12,6 +13,8 @@ public class Soldier : Moveable, IAttackable
     [SerializeField] private Material enemyMaterial;
     [SerializeField] private Material friendlyMaterial;
     [SerializeField] private Material hitMaterial;
+
+    [SerializeField] private VisualEffect hitEffect;
 
     private List<IAttackable> enemiesInRange = new List<IAttackable>();
 
@@ -172,6 +175,8 @@ public class Soldier : Moveable, IAttackable
         meshRenderer.materials = hitMaterialSet;
 
         Invoke("MaterialChanger", 0.1f);
+
+        hitEffect.Play();
 
         if (currentHealth <= 0)
         {

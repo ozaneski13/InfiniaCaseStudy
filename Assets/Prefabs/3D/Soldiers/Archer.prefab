@@ -222,6 +222,14 @@ PrefabInstance:
       propertyPath: meshRenderer
       value: 
       objectReference: {fileID: 6921602303537749123}
+    - target: {fileID: 1726053919080413481, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.1800003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726053919080413481, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2121823770536043936, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -232,6 +240,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3062443891050058512, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282973431607199367, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282973431607199367, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4022620486963760230, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
@@ -320,6 +336,11 @@ PrefabInstance:
       insertIndex: 3
       addedObject: {fileID: 1464099115988957988}
   m_SourcePrefab: {fileID: 100100000, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
+--- !u!2083052967 &2609492093187494087 stripped
+VisualEffect:
+  m_CorrespondingSourceObject: {fileID: 2269999806168892851, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
+  m_PrefabInstance: {fileID: 4302749572130051444}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5138629589098322850 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9000016776213483222, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
@@ -356,6 +377,7 @@ MonoBehaviour:
   enemyMaterial: {fileID: 2100000, guid: ecf3ef6fdfb15f8449165ccb88e82c04, type: 2}
   friendlyMaterial: {fileID: 2100000, guid: 99513544d6cae694991335d75ea5bf30, type: 2}
   hitMaterial: {fileID: 2100000, guid: 7267768224b4b3d4b87f182f46baf77a, type: 2}
+  hitEffect: {fileID: 2609492093187494087}
   projectilePoint: {fileID: 7990244239210876186}
   projectilePrefab: {fileID: 8195155427304858248, guid: fa4d75ec2ed53834aa017a704a058c6b, type: 3}
   poolParent: {fileID: 5123211238589630767}

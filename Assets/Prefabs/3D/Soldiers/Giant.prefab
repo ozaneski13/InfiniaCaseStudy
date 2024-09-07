@@ -214,6 +214,11 @@ PrefabInstance:
       insertIndex: 3
       addedObject: {fileID: 7865790156010330146}
   m_SourcePrefab: {fileID: 100100000, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
+--- !u!2083052967 &801995691934577974 stripped
+VisualEffect:
+  m_CorrespondingSourceObject: {fileID: 2269999806168892851, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
+  m_PrefabInstance: {fileID: 1486726770332823685}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5508122517662471746 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6399934073876932295, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
@@ -233,13 +238,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 6833787645538431153}
   followInterval: 0.5
-  nav: 10
+  maxDistanceForSample: 10
   spawnSO: {fileID: 11400000, guid: df948be59248a7744b4cd756947311ac, type: 2}
   type: 0
   meshRenderer: {fileID: 2013786284898177731}
   enemyMaterial: {fileID: 2100000, guid: ecf3ef6fdfb15f8449165ccb88e82c04, type: 2}
   friendlyMaterial: {fileID: 2100000, guid: 99513544d6cae694991335d75ea5bf30, type: 2}
   hitMaterial: {fileID: 2100000, guid: 7267768224b4b3d4b87f182f46baf77a, type: 2}
+  hitEffect: {fileID: 801995691934577974}
 --- !u!195 &6833787645538431153 stripped
 NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: -3857447744574259148, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}

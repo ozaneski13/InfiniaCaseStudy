@@ -1,0 +1,11 @@
+Projeyi planlarken ilk önce oyunu incelemem gerekti. Daha önce oynamıştım ancak hatırlamak adına Youtube üzerinden gameplay videolarına göz attım.
+
+-İlk fark ettiğim oyunun büyük bir kısmının UI'daki drag & drop kart mekaniği üzerinden olduğunu hatırlamak oldu. Bunun üzerine ilk o sistemi hazırladım. Daha önce UI'dan yani ekrandan 3D yüzeye yani zemine dönüşüm yapmıştım ancak daha önce bunu bir kart sisteminde yapmadığım için ilk drag & drop sistemini hazırlayıp sonra deck ve hand sistemlerini hazırladım.
+
+-Kart sistemini hazırlarken oyunda kullanacağım kart özelliklerine karar verdim ve buna göre sistemlerini hazırladım. Spawn kartlarını kendi alanımız ve yarı alanda, magic kartlarını ise haritanın herhangi bir yerinde kullanılabilecek şekilde hazırladım. Büyü kartlarına stratejik önem vermek adına düşman ya da dost kontrolü eklemedim. Böyle attığınız konumda dost birimlerde var ise onlarda hasar alacaklar.
+
+-Spawn ve büyü kartlarının kod tarafı hazır olduktan sonra bu kartların asıl işlevleri olacak prefablerini hazırladım. Spawnlar için 3 farklı asker türü (range, tank ve normal) büyüler için ise 2 farklı büyü prefabi hazırladım. Askerlerin çalışma mantıkları büyük ölçüde ortak olduğu ve hareket sistemlerini NavMesh ile halledebildiğim için ortak bir Soldier classı ile işin büyük bir kısmını hallettim. Range olan asker türü için ekstra projectile, pool ve range kontrolü gibi bazı eklemeler yapmam gerekti.
+
+-Büyüler özünde spawn olduğu alandaki birimlere efekt uygulamakta. İki büyüde zamanla hasar veriyor ancak istenilse kolaylıkla o alandaki birimleri yavaşlatma ya da dondurma gibi debufflarda atılabilir, kod bunun için müsait. Sadece şuan Magic olarak bırakılan kodun MeteorRain ve Lava gibi classlara ayrılıp Use fonksiyonlarının büyüye göre düzenlenmesi yeterli.
+
+-Büyülerin bir tanesi caseden önceki bir zamanda kendim hazırladığım Lava shaderından oluşuyor. Diğeri ise case sırasında hazırladığım VFXGraph ile hazırlanmış bir efekt.
