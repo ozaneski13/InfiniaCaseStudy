@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ public abstract class Card : Draggable
     [SerializeField] private PlayerCurrencyInventory playerCurrencyInventory;
 
     [SerializeField] private Image cardImg;
+    [SerializeField] private TextMeshProUGUI costText;
 
     [SerializeField] private LayerMask layerMask;
 
@@ -22,6 +24,9 @@ public abstract class Card : Draggable
     public void ActivateVisual()
     {
         cardImg.sprite = settings.Sprite;
+
+        costText.gameObject.SetActive(true);
+        costText.text = settings.Cost.ToString() + " Orb";
     }
 
     public abstract void Init(ECardType cardType);
@@ -49,11 +54,6 @@ public abstract class Card : Draggable
             playerCurrencyInventory.Spent(settings.Cost);
 
             OnCardUsed?.Invoke(this);
-
-            if (this is MagicCard)
-                return MagicPoolController.Instance.RefillPool((settings as MagicSettings).Type, gameObject);
-            else
-                return SpawnPoolController.Instance.RefillPool((settings as SpawnSettings).Type, gameObject);
         }
 
         return false;

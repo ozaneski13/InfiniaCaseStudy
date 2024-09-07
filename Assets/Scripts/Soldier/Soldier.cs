@@ -11,12 +11,16 @@ public class Soldier : Moveable, IAttackable
     [SerializeField] private MeshRenderer meshRenderer;
     [SerializeField] private Material enemyMaterial;
     [SerializeField] private Material friendlyMaterial;
+    [SerializeField] private Material hitMaterial;
 
     private List<IAttackable> enemiesInRange = new List<IAttackable>();
 
     private IAttackable closestEnemy;
 
     private IEnumerator attackRoutine;
+
+    private Material[] hitMaterialSet;
+    private Material[] defaultMaterialSet;
 
     private int totalHealth;
     protected int damage;
@@ -39,6 +43,9 @@ public class Soldier : Moveable, IAttackable
         damage = settings.Damage;
         range = settings.Range;
         interval = settings.AttackInterval;
+
+        defaultMaterialSet = meshRenderer.materials;
+        hitMaterialSet = new Material[2] { meshRenderer.materials[0], hitMaterial };
 
         OnFollowStoped += CheckAttack;
     }
@@ -149,11 +156,20 @@ public class Soldier : Moveable, IAttackable
         currentHealth -= damage;
         OnHit?.Invoke(currentHealth, totalHealth);
 
-        if (totalHealth <= 0)
+        meshRenderer.materials = hitMaterialSet;
+
+        Invoke("MaterialChanger", 0.1f);
+
+        if (currentHealth <= 0)
         {
             OnDied?.Invoke(this);
             SpawnPoolController.Instance.RefillPool(type, gameObject);
         }
+    }
+
+    private void MaterialChanger()
+    {
+        meshRenderer.materials = defaultMaterialSet;
     }
 
     private void OnDestroy()

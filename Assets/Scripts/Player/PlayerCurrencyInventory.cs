@@ -18,7 +18,7 @@ public class PlayerCurrencyInventory : ScriptableObject
 
     public Action OnCurrencyChanged;
 
-    public void Awake()
+    public void OnEnable()
     {
         currency = 0;
     }

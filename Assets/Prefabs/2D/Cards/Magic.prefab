@@ -111,6 +111,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4280732765566169490 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5802266147053594339, guid: a0660be6dd0885845bdb57f4a65e2fad, type: 3}
+  m_PrefabInstance: {fileID: 7777150946698925937}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5163424104856739257 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3190192621678611144, guid: a0660be6dd0885845bdb57f4a65e2fad, type: 3}
@@ -133,6 +144,7 @@ MonoBehaviour:
   deckLockSO: {fileID: 11400000, guid: 0a482551076bca0448b4bf6e685f39f2, type: 2}
   playerCurrencyInventory: {fileID: 11400000, guid: 6185e1c52b8b8fa489fe80647e63a4f8, type: 2}
   cardImg: {fileID: 579394577389051174}
+  costText: {fileID: 4280732765566169490}
   layerMask:
     serializedVersion: 2
     m_Bits: 192

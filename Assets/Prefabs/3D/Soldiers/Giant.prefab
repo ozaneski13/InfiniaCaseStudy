@@ -115,7 +115,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -3857447744574259148, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
       propertyPath: m_Speed
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -3857447744574259148, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
       propertyPath: m_Radius

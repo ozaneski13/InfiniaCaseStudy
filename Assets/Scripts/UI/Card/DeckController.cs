@@ -83,6 +83,7 @@ public class DeckController : MonoBehaviour
             Card card = deck[0];
             card.gameObject.SetActive(true);
             card.ActivateVisual();
+            card.OnCardUsed += RePoolCard;
 
             deck.Remove(card);
 

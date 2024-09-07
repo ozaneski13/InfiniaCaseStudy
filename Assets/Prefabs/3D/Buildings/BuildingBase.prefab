@@ -85,8 +85,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3059506238607292291}
   - component: {fileID: -8591780731733918728}
-  - component: {fileID: 2166539291563699773}
   - component: {fileID: 1702094679878566152}
+  - component: {fileID: 2166539291563699773}
   m_Layer: 8
   m_Name: BuildingBase
   m_TagString: Attackable
@@ -125,27 +125,8 @@ MonoBehaviour:
   playerHealthSO: {fileID: 11400000, guid: 99dbaec6e6ff4f84a92077465f1e0255, type: 2}
   startHealth: 300
   isFriendly: 0
---- !u!65 &2166539291563699773
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1786865742778104663}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  meshRenderer: {fileID: 8646280467983002198}
+  hitMaterial: {fileID: 2100000, guid: 7267768224b4b3d4b87f182f46baf77a, type: 2}
 --- !u!114 &1702094679878566152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +171,27 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+--- !u!65 &2166539291563699773
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786865742778104663}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2066072713094390134
 GameObject:
   m_ObjectHideFlags: 0
