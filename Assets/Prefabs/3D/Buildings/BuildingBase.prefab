@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &593736989628031766
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3077486155991616650}
+  m_Layer: 8
+  m_Name: ProjectilePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3077486155991616650
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593736989628031766}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8246839751732924487}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1649310261915734599
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +42,7 @@ GameObject:
   - component: {fileID: 7985883548402582568}
   - component: {fileID: 3635189756410680113}
   - component: {fileID: 4262746616231694207}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,9 +118,9 @@ GameObject:
   - component: {fileID: -8591780731733918728}
   - component: {fileID: 1702094679878566152}
   - component: {fileID: 2166539291563699773}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BuildingBase
-  m_TagString: Attackable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,10 +135,11 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7148198570259056688}
+  - {fileID: 6919953970870365427}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-8591780731733918728
@@ -125,8 +157,18 @@ MonoBehaviour:
   playerHealthSO: {fileID: 11400000, guid: 99dbaec6e6ff4f84a92077465f1e0255, type: 2}
   startHealth: 300
   isFriendly: 0
+  isMainBuilding: 0
+  hittableLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
   meshRenderer: {fileID: 8646280467983002198}
   hitMaterial: {fileID: 2100000, guid: 7267768224b4b3d4b87f182f46baf77a, type: 2}
+  projectilePoint: {fileID: 3077486155991616650}
+  damage: 10
+  interval: 1
+  projectilePrefab: {fileID: 8195155427304858248, guid: fa4d75ec2ed53834aa017a704a058c6b, type: 3}
+  poolParent: {fileID: 6919953970870365427}
+  poolSize: 20
 --- !u!114 &1702094679878566152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,7 +232,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 100, y: 10, z: 100}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2066072713094390134
 GameObject:
@@ -202,7 +244,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2874873857647250016}
   - component: {fileID: 5665444212650896906}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,7 +336,7 @@ GameObject:
   - component: {fileID: 6593798788311949404}
   - component: {fileID: 4935974047012492938}
   - component: {fileID: 4100513632414702316}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,7 +352,7 @@ RectTransform:
   m_GameObject: {fileID: 2641779591316714753}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2874873857647250016}
@@ -318,7 +360,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 20}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6593798788311949404
@@ -393,7 +435,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7148198570259056688}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -428,7 +470,7 @@ GameObject:
   - component: {fileID: 6968470745123732954}
   - component: {fileID: 5216345952621547866}
   - component: {fileID: 7793358384370241947}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -503,9 +545,11 @@ GameObject:
   - component: {fileID: 8246839751732924487}
   - component: {fileID: 3190400966589430668}
   - component: {fileID: 8646280467983002198}
+  - component: {fileID: 2804946370813993200}
+  - component: {fileID: 4348814907746092324}
   m_Layer: 8
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Attackable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -520,9 +564,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3077486155991616650}
   m_Father: {fileID: 7148198570259056688}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3190400966589430668
@@ -575,6 +620,54 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2804946370813993200
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5092844752607342754}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &4348814907746092324
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5092844752607342754}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &5144630900623983501
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,7 +679,7 @@ GameObject:
   - component: {fileID: 966760564643065785}
   - component: {fileID: 7699625667662715581}
   - component: {fileID: 4705118457692734969}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -650,3 +743,34 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &8334575739243831295
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6919953970870365427}
+  m_Layer: 0
+  m_Name: ProjectilePool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6919953970870365427
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8334575739243831295}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3059506238607292291}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

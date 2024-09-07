@@ -26,9 +26,12 @@ public class MagicCard : Card
         Magic magic = go.GetComponent<Magic>();
         magic.StartEffect((settings as MagicSettings).Damage);
 
+        visual.SetActive(false);
+        
         yield return new WaitForSeconds((settings as MagicSettings).Duration);
 
         magic.StopEffect();
         MagicPoolController.Instance.RefillPool(magicType, go);
+        OnCardUsed?.Invoke(this);
     }
 }

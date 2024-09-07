@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class SpawnCard : Card
 {
-    //[SerializeField] private PoolHolder pool;
     private ESpawnType spawnType;
 
     public override void Init(ECardType cardType)
@@ -19,5 +18,6 @@ public class SpawnCard : Card
         go.transform.position = pos;
 
         go.GetComponent<Soldier>().SetAffiliate(true);
+        OnCardUsed?.Invoke(this);
     }
 }

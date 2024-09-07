@@ -15,4 +15,4 @@ MonoBehaviour:
   maxCurrency: 100
   currency: 0
   passiveCurrencyGain: 2
-  currencyGainInterval: 5
+  currencyGainInterval: 3

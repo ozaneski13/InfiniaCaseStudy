@@ -3,7 +3,7 @@ using UnityEngine;
 
 public interface IAttackable
 {
-    bool IsEnemy();
+    bool IsFriendly();
     Action<int, int> OnHit { get; set; }
     Action<IAttackable> OnDied { get; set; }
     Transform GetTransform();

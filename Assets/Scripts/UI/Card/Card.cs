@@ -10,6 +10,7 @@ public abstract class Card : Draggable
     [SerializeField] private DeckLockSO deckLockSO;
     [SerializeField] private PlayerCurrencyInventory playerCurrencyInventory;
 
+    [SerializeField] protected GameObject visual;
     [SerializeField] private Image cardImg;
     [SerializeField] private TextMeshProUGUI costText;
 
@@ -52,8 +53,6 @@ public abstract class Card : Draggable
             Use(hit.point);
 
             playerCurrencyInventory.Spent(settings.Cost);
-
-            OnCardUsed?.Invoke(this);
         }
 
         return false;

@@ -100,12 +100,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 6844421054677637958}
   m_SourcePrefab: {fileID: 100100000, guid: a0660be6dd0885845bdb57f4a65e2fad, type: 3}
---- !u!114 &579394577389051174 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7198882889840904791, guid: a0660be6dd0885845bdb57f4a65e2fad, type: 3}
+--- !u!1 &1225206860401623606 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8857791779442349383, guid: a0660be6dd0885845bdb57f4a65e2fad, type: 3}
   m_PrefabInstance: {fileID: 7777150946698925937}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5163424104856739257}
+--- !u!114 &3530537195311308720 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6562590504016447681, guid: a0660be6dd0885845bdb57f4a65e2fad, type: 3}
+  m_PrefabInstance: {fileID: 7777150946698925937}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -143,7 +148,8 @@ MonoBehaviour:
   cardTypeSO: {fileID: 11400000, guid: b220e754e90be8f40acb04fd00839796, type: 2}
   deckLockSO: {fileID: 11400000, guid: 0a482551076bca0448b4bf6e685f39f2, type: 2}
   playerCurrencyInventory: {fileID: 11400000, guid: 6185e1c52b8b8fa489fe80647e63a4f8, type: 2}
-  cardImg: {fileID: 579394577389051174}
+  visual: {fileID: 1225206860401623606}
+  cardImg: {fileID: 3530537195311308720}
   costText: {fileID: 4280732765566169490}
   layerMask:
     serializedVersion: 2

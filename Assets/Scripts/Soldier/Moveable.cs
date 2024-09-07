@@ -46,7 +46,7 @@ public class Moveable : MonoBehaviour
             yield return null;
         }
 
-        OnFollowStoped?.Invoke();
+        Stop();
     }
 
     private void Move(Vector3 target)
@@ -58,5 +58,6 @@ public class Moveable : MonoBehaviour
     {
         agent.isStopped = true;
         agent.ResetPath();
+        OnFollowStoped?.Invoke();
     }
 }

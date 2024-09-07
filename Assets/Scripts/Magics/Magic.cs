@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Magic : MonoBehaviour
@@ -8,6 +9,20 @@ public class Magic : MonoBehaviour
     [SerializeField] private float damageInterval;
 
     private IEnumerator effectRoutine;
+
+    private List<IAttackable> attackables = new List<IAttackable>();
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if ((layerMask & (1 << other.gameObject.layer)) != 0)
+            attackables.Add(other.GetComponentInParent<IAttackable>());
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if ((layerMask & (1 << other.gameObject.layer)) != 0)
+            attackables.Remove(other.GetComponentInParent<IAttackable>());
+    }
 
     public void StartEffect(int damage)
     {
@@ -19,16 +34,11 @@ public class Magic : MonoBehaviour
     {
         while (true)
         {
-            Collider[] hitColliders = Physics.OverlapBox(transform.position,
-                new Vector3(transform.localScale.x * colliderArea.size.x, transform.localScale.y * colliderArea.size.y, transform.localScale.z * colliderArea.size.z) / 2,
-                Quaternion.identity,
-                layerMask);
-
             yield return new WaitForSeconds(damageInterval);
 
-            foreach (Collider collider in hitColliders)
+            foreach (IAttackable attackable in attackables)
             {
-                collider.GetComponent<IAttackable>().GetHit(damage);
+                attackable.GetHit(damage);
             }
         }
     }

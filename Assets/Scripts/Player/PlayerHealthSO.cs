@@ -15,4 +15,11 @@ public class PlayerHealthSO : ScriptableObject
         if (health == 0)
             loseEventSO.FireEvent();
     }
+
+    public void TakeFullDamage()
+    {
+        health = -1;
+        
+        loseEventSO.FireEvent();
+    }
 }

@@ -15,7 +15,7 @@ public class Soldier : Moveable, IAttackable
 
     private List<IAttackable> enemiesInRange = new List<IAttackable>();
 
-    private IAttackable closestEnemy;
+    protected IAttackable closestEnemy;
 
     private IEnumerator attackRoutine;
 
@@ -29,12 +29,12 @@ public class Soldier : Moveable, IAttackable
 
     private int currentHealth;
 
-    private bool isFriendly;
+    private bool isFriendly = false;
 
     public Action<IAttackable> OnDied { get; set; }
     public Action<int, int> OnHit { get; set; }
 
-    private void Awake()
+    protected virtual void Awake()
     {
         SpawnSettings settings = spawnSO.GetSpawnSettingsByType(type);
 
@@ -43,9 +43,6 @@ public class Soldier : Moveable, IAttackable
         damage = settings.Damage;
         range = settings.Range;
         interval = settings.AttackInterval;
-
-        defaultMaterialSet = meshRenderer.materials;
-        hitMaterialSet = new Material[2] { meshRenderer.materials[0], hitMaterial };
 
         OnFollowStoped += CheckAttack;
     }
@@ -61,6 +58,9 @@ public class Soldier : Moveable, IAttackable
             materials[0] = enemyMaterial;
 
         meshRenderer.materials = materials;
+
+        defaultMaterialSet = meshRenderer.materials;
+        hitMaterialSet = new Material[2] { meshRenderer.materials[0], hitMaterial };
     }
 
     private void OnTriggerEnter(Collider other)
@@ -68,9 +68,9 @@ public class Soldier : Moveable, IAttackable
         if (!other.CompareTag("Attackable"))
             return;
 
-        IAttackable attackable = other.GetComponent<IAttackable>();
+        IAttackable attackable = other.GetComponentInParent<IAttackable>();
 
-        if (!attackable.IsEnemy())
+        if (attackable.IsFriendly() == isFriendly)
             return;
 
         if (!enemiesInRange.Contains(attackable))
@@ -87,9 +87,9 @@ public class Soldier : Moveable, IAttackable
         if (!other.CompareTag("Attackable"))
             return;
 
-        IAttackable attackable = other.GetComponent<IAttackable>();
+        IAttackable attackable = other.GetComponentInParent<IAttackable>();
 
-        if (!attackable.IsEnemy())
+        if (attackable.IsFriendly() == isFriendly)
             return;
 
         if (enemiesInRange.Contains(attackable))
@@ -131,10 +131,22 @@ public class Soldier : Moveable, IAttackable
         StartCoroutine(attackRoutine);
     }
 
-    private IEnumerator AttackRoutine(float interval)
+    protected virtual IEnumerator AttackRoutine(float interval)
     {
-        yield return new WaitForSeconds(interval);
-        closestEnemy.GetHit(damage);
+        closestEnemy.OnDied += StopAttackRoutine;
+
+        while (true)
+        {
+            yield return new WaitForSeconds(interval);
+            closestEnemy.GetHit(damage);
+        }
+    }
+
+    protected virtual void StopAttackRoutine(IAttackable attackable)
+    {
+        closestEnemy.OnDied -= StopAttackRoutine;
+        StopCoroutine(attackRoutine);
+        CheckClosest();
     }
 
     private void RemoveAttackableFromList(IAttackable attackable)
@@ -143,12 +155,13 @@ public class Soldier : Moveable, IAttackable
         {
             attackable.OnDied -= RemoveAttackableFromList;
             enemiesInRange.Remove(attackable);
+            CheckClosest();
         }
     }
 
-    public bool IsEnemy()
+    public bool IsFriendly()
     {
-        return !isFriendly;
+        return isFriendly;
     }
 
     public void GetHit(int damage)
