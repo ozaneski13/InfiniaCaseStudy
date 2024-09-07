@@ -176,7 +176,11 @@ public class Soldier : Moveable, IAttackable
         if (currentHealth <= 0)
         {
             OnDied?.Invoke(this);
-            SpawnPoolController.Instance.RefillPool(type, gameObject);
+
+            if (isFriendly)
+                SpawnPoolController.Instance.RefillPool(type, gameObject);
+            else
+                gameObject.SetActive(false);
         }
     }
 

@@ -164,7 +164,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 8646280467983002198}
   hitMaterial: {fileID: 2100000, guid: 7267768224b4b3d4b87f182f46baf77a, type: 2}
   projectilePoint: {fileID: 3077486155991616650}
-  damage: 10
+  damage: 20
   interval: 1
   projectilePrefab: {fileID: 8195155427304858248, guid: fa4d75ec2ed53834aa017a704a058c6b, type: 3}
   poolParent: {fileID: 6919953970870365427}

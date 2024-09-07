@@ -349,7 +349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 8197105778893755712}
   followInterval: 0.5
-  nav: 10
+  maxDistanceForSample: 10
   spawnSO: {fileID: 11400000, guid: df948be59248a7744b4cd756947311ac, type: 2}
   type: 2
   meshRenderer: {fileID: 6921602303537749123}

@@ -12,6 +12,7 @@ public class IAttackableUI : MonoBehaviour
     private void OnEnable()
     {
         slider.value = 1;
+        fill.color = gradient.Evaluate(slider.value);
 
         attackable = GetComponent<IAttackable>();
         attackable.OnHit += UpdateUI;

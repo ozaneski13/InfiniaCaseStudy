@@ -7,8 +7,7 @@ public class Moveable : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private float followInterval = 0.5f;
-
-    public float nav = 10f;
+    [SerializeField] private float maxDistanceForSample = 10f;
 
     private IEnumerator followRoutine;
 
@@ -22,6 +21,10 @@ public class Moveable : MonoBehaviour
             StopCoroutine(followRoutine);
         
         followRoutine = FollowRoutine(target, range);
+
+        if (!gameObject.activeInHierarchy)
+            return;
+
         StartCoroutine(followRoutine);
     }
 
@@ -32,7 +35,7 @@ public class Moveable : MonoBehaviour
         
         while(Vector3.Distance(transform.position, destination) >= range)
         {
-            if (NavMesh.SamplePosition(target.position, out hit, nav, NavMesh.AllAreas))
+            if (NavMesh.SamplePosition(target.position, out hit, maxDistanceForSample, NavMesh.AllAreas))
                 result = hit.position;
             else
                 result = transform.position;
@@ -59,5 +62,11 @@ public class Moveable : MonoBehaviour
         agent.isStopped = true;
         agent.ResetPath();
         OnFollowStoped?.Invoke();
+    }
+
+    private void OnDisable()
+    {
+        if(followRoutine  != null)
+            StopCoroutine(followRoutine);
     }
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2562671043658100281}
   m_Layer: 8
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Attackable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -265,7 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 3400974183562486852}
   followInterval: 0.5
-  nav: 10
+  maxDistanceForSample: 10
   spawnSO: {fileID: 11400000, guid: df948be59248a7744b4cd756947311ac, type: 2}
   type: 1
   meshRenderer: {fileID: 7993485121925222505}
