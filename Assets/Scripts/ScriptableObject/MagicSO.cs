@@ -12,8 +12,8 @@ public class MagicSettings:Settings
     [SerializeField] private int damage;
     public int Damage => damage;
 
-    [SerializeField] private float radius;
-    public float Radius => radius;
+    [SerializeField] private float duration;
+    public float Duration => duration;
 }
 
 [CreateAssetMenu(fileName = "MagicSO", menuName = "Scriptable Objects/MagicSO", order = 2)]

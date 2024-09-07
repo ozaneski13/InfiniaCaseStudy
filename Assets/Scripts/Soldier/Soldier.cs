@@ -149,7 +149,7 @@ public class Soldier : Moveable, IAttackable
         currentHealth -= damage;
         OnHit?.Invoke(currentHealth, totalHealth);
 
-        if (totalHealth < 0)
+        if (totalHealth <= 0)
         {
             OnDied?.Invoke(this);
             SpawnPoolController.Instance.RefillPool(type, gameObject);

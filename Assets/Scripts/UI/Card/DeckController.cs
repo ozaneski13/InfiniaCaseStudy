@@ -101,6 +101,7 @@ public class DeckController : MonoBehaviour
         card.OnCardUsed -= RePoolCard;
 
         card.gameObject.SetActive(false);
+        card.transform.SetParent(cardHolder);
         deck.Add(card);
     }
 

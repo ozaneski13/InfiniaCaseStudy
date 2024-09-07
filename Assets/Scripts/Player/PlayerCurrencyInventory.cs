@@ -18,6 +18,11 @@ public class PlayerCurrencyInventory : ScriptableObject
 
     public Action OnCurrencyChanged;
 
+    public void Awake()
+    {
+        currency = 0;
+    }
+
     public void Gain(int amount)
     {
         if (currency + amount > maxCurrency)

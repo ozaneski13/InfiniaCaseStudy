@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7985883548402582568}
   - component: {fileID: 3635189756410680113}
   - component: {fileID: 4262746616231694207}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: -8591780731733918728}
   - component: {fileID: 2166539291563699773}
   - component: {fileID: 1702094679878566152}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BuildingBase
   m_TagString: Attackable
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2874873857647250016}
   - component: {fileID: 5665444212650896906}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,7 +292,7 @@ GameObject:
   - component: {fileID: 6593798788311949404}
   - component: {fileID: 4935974047012492938}
   - component: {fileID: 4100513632414702316}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -391,7 +391,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7148198570259056688}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 6968470745123732954}
   - component: {fileID: 5216345952621547866}
   - component: {fileID: 7793358384370241947}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -501,7 +501,7 @@ GameObject:
   - component: {fileID: 8246839751732924487}
   - component: {fileID: 3190400966589430668}
   - component: {fileID: 8646280467983002198}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -584,7 +584,7 @@ GameObject:
   - component: {fileID: 966760564643065785}
   - component: {fileID: 7699625667662715581}
   - component: {fileID: 4705118457692734969}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}

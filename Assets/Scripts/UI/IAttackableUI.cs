@@ -12,10 +12,7 @@ public class IAttackableUI : MonoBehaviour
     private void OnEnable()
     {
         slider.value = 1;
-    }
 
-    private void Awake()
-    {
         attackable = GetComponent<IAttackable>();
         attackable.OnHit += UpdateUI;
     }

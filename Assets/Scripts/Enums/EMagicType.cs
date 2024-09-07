@@ -1,5 +1,5 @@
 public enum EMagicType
 {
-    Fireblast,
-    ElectroStorm,
+    MeteorRain,
+    Lava,
 }
