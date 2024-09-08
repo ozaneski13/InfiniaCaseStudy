@@ -117,6 +117,10 @@ public class Building : MonoBehaviour, IAttackable
             StopCoroutine(attackRoutine);
 
         attackRoutine = AttackRoutine(interval);
+
+        if (!gameObject.activeInHierarchy)
+            return;
+
         StartCoroutine(attackRoutine);
     }
 

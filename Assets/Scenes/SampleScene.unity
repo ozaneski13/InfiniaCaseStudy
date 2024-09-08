@@ -328,7 +328,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8591780731733918728, guid: 84efe0d9a2befe44381da472e429671d, type: 3}
       propertyPath: startHealth
-      value: 600
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: -8591780731733918728, guid: 84efe0d9a2befe44381da472e429671d, type: 3}
       propertyPath: isMainBuilding
@@ -534,7 +534,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8591780731733918728, guid: 84efe0d9a2befe44381da472e429671d, type: 3}
       propertyPath: startHealth
-      value: 600
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: -8591780731733918728, guid: 84efe0d9a2befe44381da472e429671d, type: 3}
       propertyPath: isMainBuilding

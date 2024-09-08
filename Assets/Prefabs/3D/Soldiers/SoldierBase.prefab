@@ -461,6 +461,7 @@ GameObject:
   - component: {fileID: 9000016776213483222}
   - component: {fileID: -3857447744574259148}
   - component: {fileID: 2865418862620954233}
+  - component: {fileID: 8140308960638544855}
   - component: {fileID: 4184226689635992261}
   m_Layer: 0
   m_Name: SoldierBase
@@ -551,6 +552,20 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+--- !u!114 &8140308960638544855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6399934073876932295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c623f508d777924398385a23751273b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationSO: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!135 &4184226689635992261
 SphereCollider:
   m_ObjectHideFlags: 0

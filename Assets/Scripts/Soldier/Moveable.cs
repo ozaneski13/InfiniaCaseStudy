@@ -9,6 +9,8 @@ public class Moveable : MonoBehaviour
     [SerializeField] private float followInterval = 0.5f;
     [SerializeField] private float maxDistanceForSample = 10f;
 
+    [SerializeField] protected AnimationController animationController;
+
     private IEnumerator followRoutine;
 
     private Vector3 result;
@@ -32,8 +34,10 @@ public class Moveable : MonoBehaviour
     {
         NavMeshHit hit;
         Vector3 destination = target.position;
-        
-        while(Vector3.Distance(transform.position, destination) >= range)
+
+        animationController.ChangeState("Walk");
+
+        while (Vector3.Distance(transform.position, destination) >= range)
         {
             if (NavMesh.SamplePosition(target.position, out hit, maxDistanceForSample, NavMesh.AllAreas))
                 result = hit.position;
@@ -59,6 +63,8 @@ public class Moveable : MonoBehaviour
 
     protected void Stop()
     {
+        animationController.ChangeState("Entry");
+
         agent.isStopped = true;
         agent.ResetPath();
         OnFollowStoped?.Invoke();

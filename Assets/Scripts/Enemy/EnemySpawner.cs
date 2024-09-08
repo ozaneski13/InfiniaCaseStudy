@@ -61,9 +61,9 @@ public class EnemySpawner : MonoBehaviour
 
         while (true)
         {
-            int index = Random.Range(0, spawnPrefabs.Count - 1);
+            int index = Random.Range(0, spawnPrefabs.Count);
             GameObject spawn = spawnPool[index].FirstOrDefault(x => !x.activeInHierarchy);
-            spawn.transform.position = spawnPositions[Random.Range(0, spawnPositions.Count - 1)].position;
+            spawn.transform.position = spawnPositions[Random.Range(0, spawnPositions.Count)].position;
             spawn.SetActive(true);
 
             spawn.GetComponent<Soldier>().SetAffiliate(false);

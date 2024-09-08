@@ -4,21 +4,27 @@ using UnityEngine;
 public class PlayerHealthSO : ScriptableObject
 {
     [SerializeField] private int health = 3;
-    public int Health => health;
 
     [SerializeField] private VoidEventSO loseEventSO;
 
+    private int currentHealth;
+
+    private void OnEnable()
+    {
+        currentHealth = health;
+    }
+
     public void TakeDamage()
     {
-        health--;
+        currentHealth--;
 
-        if (health == 0)
+        if (currentHealth == 0)
             loseEventSO.FireEvent();
     }
 
     public void TakeFullDamage()
     {
-        health = -1;
+        currentHealth = -1;
         
         loseEventSO.FireEvent();
     }

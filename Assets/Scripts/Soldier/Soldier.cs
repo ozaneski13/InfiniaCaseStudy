@@ -140,6 +140,7 @@ public class Soldier : Moveable, IAttackable
 
         while (true)
         {
+            animationController.ChangeState("Attack");
             yield return new WaitForSeconds(interval);
             closestEnemy.GetHit(damage);
         }
