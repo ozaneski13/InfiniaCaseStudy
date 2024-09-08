@@ -24,27 +24,32 @@ public class Magic : MonoBehaviour
             attackables.Remove(other.GetComponentInParent<IAttackable>());
     }
 
-    public void StartEffect(int damage)
+    public void StartEffect(EMagicType type, int damage, float duration)
+    {
+        StartCoroutine(TimerRoutine(type, duration, damage));
+    }
+
+    private IEnumerator TimerRoutine(EMagicType type, float duration, int damage)
     {
         effectRoutine = EffectRoutine(damage);
         StartCoroutine(effectRoutine);
+
+        yield return new WaitForSeconds(duration);
+
+        StopCoroutine(effectRoutine);
+        MagicPoolController.Instance.RefillPool(type, gameObject);
     }
 
     private IEnumerator EffectRoutine(int damage)
     {
-        while (true)
+        yield return new WaitForSeconds(damageInterval);
+
+        foreach (IAttackable attackable in attackables)
         {
-            yield return new WaitForSeconds(damageInterval);
-
-            foreach (IAttackable attackable in attackables)
-            {
-                attackable.GetHit(damage);
-            }
+            attackable.GetHit(damage);
         }
-    }
 
-    public void StopEffect()
-    {
-        StopCoroutine(effectRoutine);
+        effectRoutine = EffectRoutine(damage);
+        StartCoroutine(effectRoutine);
     }
 }

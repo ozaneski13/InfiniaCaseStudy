@@ -21,12 +21,11 @@ public class Moveable : MonoBehaviour
     {
         if (followRoutine != null)
             StopCoroutine(followRoutine);
-        
-        followRoutine = FollowRoutine(target, range);
 
         if (!gameObject.activeInHierarchy)
             return;
 
+        followRoutine = FollowRoutine(target, range);
         StartCoroutine(followRoutine);
     }
 
@@ -61,12 +60,11 @@ public class Moveable : MonoBehaviour
         agent.destination = target;
     }
 
-    protected void Stop()
+    private void Stop()
     {
-        animationController.ChangeState("Entry");
-
         agent.isStopped = true;
         agent.ResetPath();
+        agent.SetDestination(transform.position);
         OnFollowStoped?.Invoke();
     }
 

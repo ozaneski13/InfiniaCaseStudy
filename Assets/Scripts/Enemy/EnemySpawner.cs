@@ -49,34 +49,35 @@ public class EnemySpawner : MonoBehaviour
         spawnPool[index] = pool;
     }
 
-    private void Start()
+    private IEnumerator Start()
     {
+        yield return new WaitForSeconds(durationBeforeFirstSpawn);
+
         spawnRoutine = SpawnRoutine();
         StartCoroutine(spawnRoutine);
     }
 
     private IEnumerator SpawnRoutine()
     {
-        yield return new WaitForSeconds(durationBeforeFirstSpawn);
+        int index = Random.Range(0, spawnPrefabs.Count);
+        GameObject spawn = spawnPool[index].FirstOrDefault(x => !x.activeInHierarchy);
+        spawn.transform.position = spawnPositions[Random.Range(0, spawnPositions.Count)].position;
+        spawn.SetActive(true);
 
-        while (true)
-        {
-            int index = Random.Range(0, spawnPrefabs.Count);
-            GameObject spawn = spawnPool[index].FirstOrDefault(x => !x.activeInHierarchy);
-            spawn.transform.position = spawnPositions[Random.Range(0, spawnPositions.Count)].position;
-            spawn.SetActive(true);
+        spawn.GetComponent<Soldier>().SetAffiliate(false);
 
-            spawn.GetComponent<Soldier>().SetAffiliate(false);
+        if (spawnPool[index].Count <= rePoolThreshold)
+            InitPool(index);
 
-            if (spawnPool[index].Count <= rePoolThreshold)
-                InitPool(index);
+        yield return new WaitForSeconds(spawnInterval);
 
-            yield return new WaitForSeconds(spawnInterval);
-        }
+        spawnRoutine = SpawnRoutine();
+        StartCoroutine(spawnRoutine);
     }
 
     private void OnDestroy()
     {
-        StopCoroutine(spawnRoutine);
+        if (spawnRoutine != null) 
+            StopCoroutine(spawnRoutine);
     }
 }

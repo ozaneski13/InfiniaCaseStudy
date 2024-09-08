@@ -18,10 +18,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 64cc5cc2aeadaf84f9eba6ccd4efb855, type: 3}
     type: 0
     damage: 20
-    duration: 3
+    duration: 10
   - prefab: {fileID: 32757069786529090, guid: a0051181dbf651d42b03a682d8c7c8dc, type: 3}
     cost: 5
     sprite: {fileID: 21300000, guid: ef7f74680d7073f4db0159789dc82456, type: 3}
     type: 1
     damage: 15
-    duration: 5
+    duration: 15

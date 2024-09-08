@@ -8,7 +8,8 @@ public class AnimationController : MonoBehaviour
 
     public void ChangeState(string state)
     {
+        animator.StopPlayback();
         currentState = state;
-        animator.CrossFade(currentState, 0f);
+        animator.CrossFade(currentState, 0.1f);
     }
 }

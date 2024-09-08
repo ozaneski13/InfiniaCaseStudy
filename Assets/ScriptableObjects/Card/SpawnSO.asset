@@ -35,5 +35,5 @@ MonoBehaviour:
     type: 2
     health: 100
     damage: 50
-    range: 80
+    range: 55
     attackInterval: 1

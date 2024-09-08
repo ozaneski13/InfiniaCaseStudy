@@ -20,7 +20,7 @@ public class Soldier : Moveable, IAttackable
 
     protected IAttackable closestEnemy;
 
-    private IEnumerator attackRoutine;
+    protected IEnumerator attackRoutine;
 
     private Material[] hitMaterialSet;
     private Material[] defaultMaterialSet;
@@ -101,10 +101,13 @@ public class Soldier : Moveable, IAttackable
         CheckClosest();
     }
 
-    private void CheckClosest()
+    protected void CheckClosest()
     {
         if (enemiesInRange.Count == 0)
+        {
+            animationController.ChangeState("Idle");
             return;
+        }
 
         IAttackable closestTemp = null;
         float distance = Mathf.Infinity;
@@ -130,25 +133,28 @@ public class Soldier : Moveable, IAttackable
         if (attackRoutine != null)
             StopCoroutine(attackRoutine);
 
-        attackRoutine = AttackRoutine(interval);
+        closestEnemy.OnDied += StopAttackRoutine;
+
+        animationController.ChangeState("Attack");
+
+
+        attackRoutine = AttackRoutine(interval, closestEnemy);
         StartCoroutine(attackRoutine);
     }
 
-    protected virtual IEnumerator AttackRoutine(float interval)
+    protected virtual IEnumerator AttackRoutine(float interval, IAttackable attackable)
     {
-        closestEnemy.OnDied += StopAttackRoutine;
+        yield return new WaitForSeconds(interval);
 
-        while (true)
-        {
-            animationController.ChangeState("Attack");
-            yield return new WaitForSeconds(interval);
-            closestEnemy.GetHit(damage);
-        }
+        attackable.GetHit(damage);
+
+        attackRoutine = AttackRoutine(interval, attackable);
+        StartCoroutine(attackRoutine);
     }
 
     protected virtual void StopAttackRoutine(IAttackable attackable)
     {
-        closestEnemy.OnDied -= StopAttackRoutine;
+        attackable.OnDied -= StopAttackRoutine;
         StopCoroutine(attackRoutine);
         CheckClosest();
     }

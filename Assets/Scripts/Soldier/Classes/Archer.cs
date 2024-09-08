@@ -32,26 +32,29 @@ public class Archer : Soldier
         }
     }
 
-    protected override IEnumerator AttackRoutine(float interval)
+    protected override IEnumerator AttackRoutine(float interval, IAttackable attackable)
     {
-        closestEnemy.OnDied += StopAttackRoutine;
+        GameObject projectile = projectilePool.FirstOrDefault(x => !x.activeInHierarchy);
+        projectile.transform.position = projectilePoint.position;
+        projectile.SetActive(true);
 
-        while (true)
-        {
-            GameObject projectile = projectilePool.FirstOrDefault(x => !x.activeInHierarchy);
-            projectile.transform.position = projectilePoint.position;
-            projectile.SetActive(true);
+        projectile.transform.DOMove(attackable.GetTransform().position, interval);
 
-            projectile.transform.DOMove(closestEnemy.GetTransform().position, interval);
+        yield return new WaitForSeconds(interval);
+        attackable.GetHit(damage);
 
-            yield return new WaitForSeconds(interval);
-            closestEnemy.GetHit(damage);
-        }
+        if (!attackable.GetTransform().gameObject.activeInHierarchy)
+            yield break;
+
+        attackRoutine = AttackRoutine(interval, attackable);
+        StartCoroutine(attackRoutine);
     }
 
     protected override void StopAttackRoutine(IAttackable attackable)
     {
-        base.StopAttackRoutine(attackable);
+        attackable.OnDied -= StopAttackRoutine;
+        StopCoroutine(AttackRoutine(interval, attackable));
+        CheckClosest();
 
         projectilePool.ForEach(x => x.SetActive(false));
     }

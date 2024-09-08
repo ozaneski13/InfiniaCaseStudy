@@ -10,7 +10,6 @@ public abstract class Card : Draggable
     [SerializeField] private DeckLockSO deckLockSO;
     [SerializeField] private PlayerCurrencyInventory playerCurrencyInventory;
 
-    [SerializeField] protected GameObject visual;
     [SerializeField] private Image cardImg;
     [SerializeField] private TextMeshProUGUI costText;
 

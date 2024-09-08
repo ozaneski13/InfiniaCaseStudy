@@ -122,24 +122,27 @@ public class Building : MonoBehaviour, IAttackable
             return;
 
         StartCoroutine(attackRoutine);
+        currentAttackable.OnDied += StopAttackRoutine;
     }
 
     private IEnumerator AttackRoutine(float interval)
     {
-        currentAttackable.OnDied += StopAttackRoutine;
+        GameObject projectile = projectilePool.FirstOrDefault(x => !x.activeInHierarchy);
+        projectile.transform.position = projectilePoint.position;
+        projectile.SetActive(true);
 
-        while (true)
-        {
-            GameObject projectile = projectilePool.FirstOrDefault(x => !x.activeInHierarchy);
-            projectile.transform.position = projectilePoint.position;
-            projectile.SetActive(true);
+        projectile.transform.DOMove(currentAttackable.GetTransform().position, interval);
 
-            projectile.transform.DOMove(currentAttackable.GetTransform().position, interval);
+        yield return new WaitForSeconds(interval);
 
-            yield return new WaitForSeconds(interval);
+        currentAttackable.GetHit(damage);
 
-            currentAttackable.GetHit(damage);
-        }
+        attackRoutine = AttackRoutine(interval);
+
+        if (!gameObject.activeInHierarchy)
+            yield break;
+
+        StartCoroutine(attackRoutine);
     }
 
     private void StopAttackRoutine(IAttackable attackable)
