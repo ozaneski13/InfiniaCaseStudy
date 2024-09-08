@@ -4,6 +4,7 @@
     "com.unity.collab-proxy": "2.4.4",
     "com.unity.device-simulator.devices": "1.0.0",
     "com.unity.feature.development": "1.0.1",
+    "com.unity.mobile.android-logcat": "1.4.2",
     "com.unity.postprocessing": "3.2.2",
     "com.unity.render-pipelines.universal": "14.0.9",
     "com.unity.terrain-tools": "5.0.5",

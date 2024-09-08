@@ -78,6 +78,8 @@ public class DeckController : MonoBehaviour
 
     private IEnumerator FillRoutine(int neededCount)
     {
+        deck = ShuffleList(deck);
+
         for (int i = 0; i < neededCount; i++)
         {
             Card card = deck[0];
@@ -88,7 +90,6 @@ public class DeckController : MonoBehaviour
             deck.Remove(card);
 
             card.transform.DOMove(handController.MovePoint.position, 2f);
-            deck[0].gameObject.SetActive(true);
             yield return new WaitForSeconds(3f);
 
             handController.Fill(card);
@@ -101,8 +102,9 @@ public class DeckController : MonoBehaviour
     {
         card.OnCardUsed -= RePoolCard;
 
-        card.gameObject.SetActive(false);
         card.transform.SetParent(cardHolder);
+        card.gameObject.SetActive(false);
+        card.transform.position = Vector3.zero;
         deck.Add(card);
     }
 

@@ -7,6 +7,11 @@ public class Player : MonoBehaviour
 
     private IEnumerator currencyRoutine;
 
+    private void Awake()
+    {
+        Application.targetFrameRate = 120;
+    }
+
     private void Start()
     {
         currencyRoutine = CurrencyRoutine();

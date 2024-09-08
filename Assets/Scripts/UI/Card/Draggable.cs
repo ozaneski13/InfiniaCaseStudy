@@ -63,6 +63,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
     protected void SetDefaultParent()
     {
         transform.SetParent(parentToReturn);
+        isDraggable = true;
     }
 
     public virtual bool OnDragFinished(PointerEventData eventData)

@@ -39,7 +39,6 @@ public abstract class Card : Draggable
         if (!playerCurrencyInventory.CanAfford(settings.Cost))
         {
             isDraggable = true;
-            SetDefaultParent();
 
             return false;
         }
@@ -52,6 +51,8 @@ public abstract class Card : Draggable
             Use(hit.point);
 
             playerCurrencyInventory.Spent(settings.Cost);
+
+            return true;
         }
 
         return false;
