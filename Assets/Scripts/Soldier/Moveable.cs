@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class Moveable : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private float followInterval = 0.5f;
     [SerializeField] private float maxDistanceForSample = 10f;
 
     [SerializeField] protected AnimationController animationController;
