@@ -12,8 +12,6 @@ public class Moveable : MonoBehaviour
 
     private IEnumerator followRoutine;
 
-    private Vector3 result;
-
     public Action OnFollowStoped;
 
     protected void Follow(Transform target, float range)
@@ -32,6 +30,7 @@ public class Moveable : MonoBehaviour
     {
         NavMeshHit hit;
         Vector3 destination = target.position;
+        Vector3 result;
 
         animationController.ChangeState("Walk");
 

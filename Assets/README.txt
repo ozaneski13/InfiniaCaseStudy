@@ -1,3 +1,5 @@
-Emre bey selamlar. Umarım proje aradıklarınızı karşılar. 3rd party plugin olarak sadece Dotween kullandım. Buna ek olarak daha önce hiç yaşamadım ancak bu projede .gitignore ile problem yaşadım o yüzden pullarken .meta dosyaları da gelmiş olabilir, umarım kritik bir sorun oluşturmaz sizin için.
+Emre bey selamlar. 3rd party plugin olarak sadece Dotween kullandım. Buna ek olarak daha önce hiç yaşamadım ancak bu projede .gitignore ile problem yaşadım o yüzden pullarken .meta dosyaları da gelmiş olabilir, umarım kritik bir sorun oluşturmaz sizin için.
 
-Binaların kartla spawn olma ya da ateş etme haricinde bir işlevi olmadığı için kodlarının detaylarına çok düşmedim. Bunu tercihen yaptığımı belirtmek isterim.
+Binaların kartla spawn olma ya da ateş etme haricinde bir işlevi olmadığı için kodlarının detaylarına çok düşmedim. Ek olarak Plan.txt'de belirttiğim gibi büyüler haritada her yere atılabiliyor. Bunu tercihen yaptığımı belirtmek isterim.
+
+Eminim bazı kısımlar daha iyi ya da daha farklı şekilde tasarlanabilir. Case için teşekkür ederim. Üzerine çalışırken gerçekten keyif aldım. Yaptığınız diğer projeleri incelediğimde ve sizinle görüştüğümüzde aldığım bilgiler doğrultusunda, case sizin de beklentilerinizi karşıladığı takdirde, sizinle çalışmaktan büyük keyif alacağımı inanıyorum. Teşekkürler.

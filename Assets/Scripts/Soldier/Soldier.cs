@@ -16,7 +16,11 @@ public class Soldier : Moveable, IAttackable
 
     [SerializeField] private VisualEffect hitEffect;
 
-    private List<IAttackable> enemiesInRange = new List<IAttackable>();
+    [SerializeField] protected SFXSO sfxSO;
+    [SerializeField] protected ESFXType attackSFXType;
+    [SerializeField] protected AudioSource source;
+
+    private List<IAttackable> enemiesInRange;
 
     protected IAttackable closestEnemy;
 
@@ -37,7 +41,7 @@ public class Soldier : Moveable, IAttackable
     public Action<IAttackable> OnDied { get; set; }
     public Action<int, int> OnHit { get; set; }
 
-    protected virtual void Awake()
+    private void OnEnable()
     {
         SpawnSettings settings = spawnSO.GetSpawnSettingsByType(type);
 
@@ -46,6 +50,8 @@ public class Soldier : Moveable, IAttackable
         damage = settings.Damage;
         range = settings.Range;
         interval = settings.AttackInterval;
+
+        enemiesInRange = new List<IAttackable>();
 
         OnFollowStoped += CheckAttack;
     }
@@ -137,7 +143,6 @@ public class Soldier : Moveable, IAttackable
 
         animationController.ChangeState("Attack");
 
-
         attackRoutine = AttackRoutine(interval, closestEnemy);
         StartCoroutine(attackRoutine);
     }
@@ -146,6 +151,7 @@ public class Soldier : Moveable, IAttackable
     {
         yield return new WaitForSeconds(interval);
 
+        source.PlayOneShot(sfxSO.GetSFXSettingsByCardType(attackSFXType).Clip);
         attackable.GetHit(damage);
 
         attackRoutine = AttackRoutine(interval, attackable);
@@ -176,6 +182,8 @@ public class Soldier : Moveable, IAttackable
 
     public void GetHit(int damage)
     {
+        source.PlayOneShot(sfxSO.GetSFXSettingsByCardType(ESFXType.SoldierGotHit).Clip);
+
         currentHealth -= damage;
         OnHit?.Invoke(currentHealth, totalHealth);
 
@@ -201,13 +209,13 @@ public class Soldier : Moveable, IAttackable
         meshRenderer.materials = defaultMaterialSet;
     }
 
-    private void OnDestroy()
-    {
-        OnFollowStoped -= CheckAttack;
-    }
-
     public Transform GetTransform()
     {
         return transform;
+    }
+
+    private void OnDisable()
+    {
+        OnFollowStoped -= CheckAttack;
     }
 }

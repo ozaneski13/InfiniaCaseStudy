@@ -23,6 +23,7 @@ public abstract class Card : Draggable
 
     public void ActivateVisual()
     {
+        isDraggable = true;
         cardImg.sprite = settings.Sprite;
 
         costText.gameObject.SetActive(true);

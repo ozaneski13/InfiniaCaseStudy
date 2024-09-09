@@ -13,27 +13,29 @@ public class EndGameUI : MonoBehaviour
     [SerializeField] private GameObject panel;
     [SerializeField] private float animDuration = 0.6f;
 
+    [SerializeField] private SFXSO sfxSO;
+    [SerializeField] private AudioSource source;
+
     private bool isToggled = false;
 
     private Vector3 panelDefaultPos;
 
-    private void OnEnable()
-    {
-        panelDefaultPos = panel.transform.position;
-    }
-
     private void Start()
     {
+        panelDefaultPos = panel.transform.position;
+
         winEventSO.Subscribe(()=>
         {
             winText.SetActive(true);
-            TogglePanel(); 
+            TogglePanel();
+            source.PlayOneShot(sfxSO.GetSFXSettingsByCardType(ESFXType.BattleWin).Clip);
         });
 
         loseEventSO.Subscribe(()=> 
         {
             loseText.SetActive(true);
-            TogglePanel(); 
+            TogglePanel();
+            source.PlayOneShot(sfxSO.GetSFXSettingsByCardType(ESFXType.BattleLost).Clip);
         });
     }
 
@@ -68,5 +70,20 @@ public class EndGameUI : MonoBehaviour
     public void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void OnDestroy()
+    {
+        winEventSO.Unsubscribe(() =>
+        {
+            winText.SetActive(true);
+            TogglePanel();
+        });
+
+        loseEventSO.Unsubscribe(() =>
+        {
+            loseText.SetActive(true);
+            TogglePanel();
+        });
     }
 }

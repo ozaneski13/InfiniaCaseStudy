@@ -280,7 +280,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 3400974183562486852}
-  followInterval: 0.5
   maxDistanceForSample: 10
   animationController: {fileID: 1566417488840429479}
   spawnSO: {fileID: 11400000, guid: df948be59248a7744b4cd756947311ac, type: 2}
@@ -290,6 +289,14 @@ MonoBehaviour:
   friendlyMaterial: {fileID: 2100000, guid: 99513544d6cae694991335d75ea5bf30, type: 2}
   hitMaterial: {fileID: 2100000, guid: 7267768224b4b3d4b87f182f46baf77a, type: 2}
   hitEffect: {fileID: 8846634810180248003}
+  sfxSO: {fileID: 11400000, guid: 67d36db88a30ba24a92ae5d2e50964d1, type: 2}
+  attackSFXType: 2
+  source: {fileID: 6206758204471553041}
+--- !u!82 &6206758204471553041 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3704195322642532449, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
+  m_PrefabInstance: {fileID: 7297282437896283248}
+  m_PrefabAsset: {fileID: 0}
 --- !u!2083052967 &8846634810180248003 stripped
 VisualEffect:
   m_CorrespondingSourceObject: {fileID: 2269999806168892851, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}

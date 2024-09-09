@@ -224,6 +224,11 @@ VisualEffect:
   m_CorrespondingSourceObject: {fileID: 2269999806168892851, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
   m_PrefabInstance: {fileID: 1486726770332823685}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &2866004721121229028 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3704195322642532449, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
+  m_PrefabInstance: {fileID: 1486726770332823685}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5508122517662471746 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6399934073876932295, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
@@ -242,7 +247,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 6833787645538431153}
-  followInterval: 0.5
   maxDistanceForSample: 10
   animationController: {fileID: 7231028105262553938}
   spawnSO: {fileID: 11400000, guid: df948be59248a7744b4cd756947311ac, type: 2}
@@ -252,6 +256,9 @@ MonoBehaviour:
   friendlyMaterial: {fileID: 2100000, guid: 99513544d6cae694991335d75ea5bf30, type: 2}
   hitMaterial: {fileID: 2100000, guid: 7267768224b4b3d4b87f182f46baf77a, type: 2}
   hitEffect: {fileID: 801995691934577974}
+  sfxSO: {fileID: 11400000, guid: 67d36db88a30ba24a92ae5d2e50964d1, type: 2}
+  attackSFXType: 3
+  source: {fileID: 2866004721121229028}
 --- !u!195 &6833787645538431153 stripped
 NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: -3857447744574259148, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}

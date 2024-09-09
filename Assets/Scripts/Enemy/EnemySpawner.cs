@@ -8,13 +8,15 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private List<Transform> spawnPositions;
     [SerializeField] private List<GameObject> spawnPrefabs;
 
-    
     [SerializeField] private Transform poolParent;
     [SerializeField] private int poolSize;
     [SerializeField] private int rePoolThreshold;
 
     [SerializeField] private float durationBeforeFirstSpawn;
     [SerializeField] private float spawnInterval;
+
+    [SerializeField] private SFXSO sfxSO;
+    [SerializeField] private AudioSource source;
 
     private Dictionary<int, List<GameObject>> spawnPool = new Dictionary<int, List<GameObject>>();
 
@@ -52,6 +54,8 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerator Start()
     {
         yield return new WaitForSeconds(durationBeforeFirstSpawn);
+
+        source.PlayOneShot(sfxSO.GetSFXSettingsByCardType(ESFXType.BattleStart).Clip);
 
         spawnRoutine = SpawnRoutine();
         StartCoroutine(spawnRoutine);

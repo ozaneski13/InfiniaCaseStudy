@@ -23,6 +23,9 @@ public class Building : MonoBehaviour, IAttackable
     [SerializeField] private Transform poolParent;
     [SerializeField] private int poolSize;
 
+    [SerializeField] protected SFXSO sfxSO;
+    [SerializeField] protected AudioSource source;
+
     private List<GameObject> projectilePool;
 
     private Material[] hitMaterialSet;
@@ -132,8 +135,12 @@ public class Building : MonoBehaviour, IAttackable
         projectile.SetActive(true);
 
         projectile.transform.DOMove(attackable.GetTransform().position, interval);
+        source.PlayOneShot(sfxSO.GetSFXSettingsByCardType(ESFXType.ArcherAttack).Clip);
 
         yield return new WaitForSeconds(interval);
+
+        if (!attackable.GetTransform().gameObject.activeInHierarchy)
+            yield break;
 
         attackable.GetHit(damage);
 
@@ -147,8 +154,8 @@ public class Building : MonoBehaviour, IAttackable
 
     private void StopAttackRoutine(IAttackable attackable)
     {
-        currentAttackable.OnDied -= StopAttackRoutine;
-        StopCoroutine(AttackRoutine(interval, attackable));
+        attackable.OnDied -= StopAttackRoutine;
+        StopAllCoroutines();
 
         projectilePool.ForEach(x => x.SetActive(false));
 
@@ -170,6 +177,7 @@ public class Building : MonoBehaviour, IAttackable
         if (currentHealth <= 0)
             return;
 
+        source.PlayOneShot(sfxSO.GetSFXSettingsByCardType(ESFXType.BuildingGotHit).Clip);
         currentHealth -= damage;
         OnHit?.Invoke(currentHealth, startHealth);
 
@@ -181,14 +189,11 @@ public class Building : MonoBehaviour, IAttackable
         {
             OnDied?.Invoke(this);
 
-            if (isFriendly)
-            {
-                if (isMainBuilding)
-                    playerHealthSO.TakeFullDamage();
-                else
-                    playerHealthSO.TakeDamage();
-            }
-                
+            if (isMainBuilding)
+                playerHealthSO.TakeFullDamage();
+            else
+                playerHealthSO.TakeDamage();
+
             gameObject.SetActive(false);
         }
     }

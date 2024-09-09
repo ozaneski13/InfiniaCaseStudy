@@ -13,9 +13,8 @@ public class Archer : Soldier
 
     private List<GameObject> projectilePool;
 
-    protected override void Awake()
+    private void Awake()
     {
-        base.Awake();
         InitPool();
     }
 
@@ -39,6 +38,7 @@ public class Archer : Soldier
         projectile.SetActive(true);
 
         projectile.transform.DOMove(attackable.GetTransform().position, interval);
+        source.PlayOneShot(sfxSO.GetSFXSettingsByCardType(attackSFXType).Clip);
 
         yield return new WaitForSeconds(interval);
         attackable.GetHit(damage);

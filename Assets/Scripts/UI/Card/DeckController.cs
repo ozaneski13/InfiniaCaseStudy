@@ -14,6 +14,8 @@ public class DeckController : MonoBehaviour
 
     [SerializeField] private HandController handController;
 
+    [SerializeField] private float cardMovementDuration;
+
     private List<Card> deck;
 
     private void Awake()
@@ -89,8 +91,8 @@ public class DeckController : MonoBehaviour
 
             deck.Remove(card);
 
-            card.transform.DOMove(handController.MovePoint.position, 2f);
-            yield return new WaitForSeconds(3f);
+            card.transform.DOMove(handController.MovePoint.position, cardMovementDuration);
+            yield return new WaitForSeconds(cardMovementDuration + 1f);
 
             handController.Fill(card);
         }

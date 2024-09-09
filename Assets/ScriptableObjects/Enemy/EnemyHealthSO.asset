@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4a9f04723d04b547ad766f69112a730, type: 3}
-  m_Name: PlayerHealthSO
+  m_Name: EnemyHealthSO
   m_EditorClassIdentifier: 
   health: 3
   winEventSO: {fileID: 11400000, guid: 23e908f681bd2cb44ad2d2388d6991da, type: 2}
   loseEventSO: {fileID: 11400000, guid: 9a765fa44aa8c9644b74cea8190b27fa, type: 2}
-  isFriendly: 1
+  isFriendly: 0

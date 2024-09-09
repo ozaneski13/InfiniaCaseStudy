@@ -8,6 +8,9 @@ public class AnimationController : MonoBehaviour
 
     public void ChangeState(string state)
     {
+        if (!gameObject.activeInHierarchy)
+            return;
+
         animator.StopPlayback();
         currentState = state;
         animator.CrossFade(currentState, 0.1f);

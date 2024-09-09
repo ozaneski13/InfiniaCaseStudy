@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd82ef40dec3d6740b12a4438d2c13b8, type: 3}
+  m_Name: SFXSO
+  m_EditorClassIdentifier: 
+  sfxs:
+  - type: 4
+    clip: {fileID: 8300000, guid: 3a9834037f3c3e7419e9271e5f6a9d88, type: 3}
+  - type: 0
+    clip: {fileID: 8300000, guid: 857ac67289f99ef4c8aa916367820f8b, type: 3}
+  - type: 3
+    clip: {fileID: 8300000, guid: 954b9cbc49fdfb5499f7aa28f07c8b32, type: 3}
+  - type: 1
+    clip: {fileID: 8300000, guid: 74359cb3da64dc443b9397a1fcfeeeae, type: 3}
+  - type: 2
+    clip: {fileID: 8300000, guid: 2d72a43adc990214499560745aa1d0d3, type: 3}
+  - type: 5
+    clip: {fileID: 8300000, guid: d50495cec8f3fa243afdda7721db2324, type: 3}
+  - type: 6
+    clip: {fileID: 8300000, guid: 897cebdcd00f17342a2e64a590108904, type: 3}
+  - type: 7
+    clip: {fileID: 8300000, guid: fd98e1865bdd3e74a8518e5d261d34fe, type: 3}

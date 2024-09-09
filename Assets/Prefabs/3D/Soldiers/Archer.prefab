@@ -482,6 +482,11 @@ PrefabInstance:
       insertIndex: 3
       addedObject: {fileID: 1464099115988957988}
   m_SourcePrefab: {fileID: 100100000, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
+--- !u!82 &635462699849030933 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3704195322642532449, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
+  m_PrefabInstance: {fileID: 4302749572130051444}
+  m_PrefabAsset: {fileID: 0}
 --- !u!2083052967 &2609492093187494087 stripped
 VisualEffect:
   m_CorrespondingSourceObject: {fileID: 2269999806168892851, guid: 4baa1840fcd7f644684deb8e37d7c9b2, type: 3}
@@ -526,7 +531,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 8197105778893755712}
-  followInterval: 0.5
   maxDistanceForSample: 10
   animationController: {fileID: 5426345169564516003}
   spawnSO: {fileID: 11400000, guid: df948be59248a7744b4cd756947311ac, type: 2}
@@ -536,6 +540,9 @@ MonoBehaviour:
   friendlyMaterial: {fileID: 2100000, guid: 99513544d6cae694991335d75ea5bf30, type: 2}
   hitMaterial: {fileID: 2100000, guid: 7267768224b4b3d4b87f182f46baf77a, type: 2}
   hitEffect: {fileID: 2609492093187494087}
+  sfxSO: {fileID: 11400000, guid: 67d36db88a30ba24a92ae5d2e50964d1, type: 2}
+  attackSFXType: 4
+  source: {fileID: 635462699849030933}
   projectilePoint: {fileID: 7990244239210876186}
   projectilePrefab: {fileID: 8195155427304858248, guid: fa4d75ec2ed53834aa017a704a058c6b, type: 3}
   poolParent: {fileID: 5123211238589630767}
