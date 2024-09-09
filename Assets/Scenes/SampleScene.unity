@@ -6318,7 +6318,7 @@ MonoBehaviour:
   - {fileID: 5508122517662471746, guid: dcb6de9b22042f14e94183373ba14497, type: 3}
   - {fileID: 4437177679834989239, guid: 29e6d7b06ba34694b924cc793a7de77a, type: 3}
   poolParent: {fileID: 347804114}
-  poolSize: 20
+  poolSize: 40
   rePoolThreshold: 5
   durationBeforeFirstSpawn: 10
   spawnInterval: 10

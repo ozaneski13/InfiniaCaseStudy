@@ -39,8 +39,9 @@ public class EnemySpawner : MonoBehaviour
     private void InitPool(int index)
     {
         List<GameObject> pool = spawnPool[index];
+        int sizeCount = poolSize - pool.Count;
 
-        for (int j = 0; j < poolSize - pool.Count; j++)
+        for (int j = 0; j < sizeCount; j++)
         {
             GameObject spawnGO = Instantiate(spawnPrefabs[index], poolParent);
             spawnGO.SetActive(false);

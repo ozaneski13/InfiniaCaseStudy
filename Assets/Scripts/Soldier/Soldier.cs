@@ -154,6 +154,9 @@ public class Soldier : Moveable, IAttackable
         source.PlayOneShot(sfxSO.GetSFXSettingsByCardType(attackSFXType).Clip);
         attackable.GetHit(damage);
 
+        if (!attackable.GetTransform().gameObject.activeInHierarchy)
+            yield break;
+
         attackRoutine = AttackRoutine(interval, attackable);
         StartCoroutine(attackRoutine);
     }
@@ -182,6 +185,9 @@ public class Soldier : Moveable, IAttackable
 
     public void GetHit(int damage)
     {
+        if (!gameObject.activeInHierarchy)
+            return;
+
         source.PlayOneShot(sfxSO.GetSFXSettingsByCardType(ESFXType.SoldierGotHit).Clip);
 
         currentHealth -= damage;
@@ -215,6 +221,11 @@ public class Soldier : Moveable, IAttackable
     }
 
     private void OnDisable()
+    {
+        OnFollowStoped -= CheckAttack;
+    }
+
+    private void OnDestroy()
     {
         OnFollowStoped -= CheckAttack;
     }

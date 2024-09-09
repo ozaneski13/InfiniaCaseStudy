@@ -4,19 +4,13 @@ using UnityEngine.EventSystems;
 public class Draggable : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     [SerializeField] private CanvasGroup canvasGroup;
+    [SerializeField] protected DeckLockSO deckLockSO;
 
     private Transform parentToReturn;
 
-    protected bool isDraggable = true;
-
-    private void OnEnable()
-    {
-        isDraggable = true;
-    }
-
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (!isDraggable)
+        if (deckLockSO.IsLocked)
             return;
 
         parentToReturn = transform.parent;
@@ -27,7 +21,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (!isDraggable)
+        if (deckLockSO.IsLocked)
             return;
 
         transform.position = eventData.position;
@@ -35,7 +29,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
 
     public virtual void OnEndDrag(PointerEventData eventData)
     {
-        if (!isDraggable)
+        if (deckLockSO.IsLocked)
             return;
 
         canvasGroup.blocksRaycasts = true;
@@ -50,8 +44,6 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
         {
             if (!OnDragFinished(eventData))
                 SetDefaultParent();
-            else
-                isDraggable = false;
         }
 
         else
@@ -63,7 +55,6 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
     protected void SetDefaultParent()
     {
         transform.SetParent(parentToReturn);
-        isDraggable = true;
     }
 
     public virtual bool OnDragFinished(PointerEventData eventData)

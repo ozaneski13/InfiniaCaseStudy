@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public abstract class Card : Draggable
 {
     [SerializeField] protected CardTypeSO cardTypeSO;
-    [SerializeField] private DeckLockSO deckLockSO;
     [SerializeField] private PlayerCurrencyInventory playerCurrencyInventory;
 
     [SerializeField] private Image cardImg;
@@ -23,7 +22,6 @@ public abstract class Card : Draggable
 
     public void ActivateVisual()
     {
-        isDraggable = true;
         cardImg.sprite = settings.Sprite;
 
         costText.gameObject.SetActive(true);
@@ -39,8 +37,6 @@ public abstract class Card : Draggable
 
         if (!playerCurrencyInventory.CanAfford(settings.Cost))
         {
-            isDraggable = true;
-
             return false;
         }
 

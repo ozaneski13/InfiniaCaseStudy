@@ -12,7 +12,14 @@ public class Moveable : MonoBehaviour
 
     private IEnumerator followRoutine;
 
+    private bool isFirstMove = true;
+
     public Action OnFollowStoped;
+
+    private void OnEnable()
+    {
+        isFirstMove = true;
+    }
 
     protected void Follow(Transform target, float range)
     {
@@ -33,6 +40,7 @@ public class Moveable : MonoBehaviour
         Vector3 result;
 
         animationController.ChangeState("Walk");
+        isFirstMove = true;
 
         while (Vector3.Distance(transform.position, destination) >= range)
         {
@@ -41,8 +49,9 @@ public class Moveable : MonoBehaviour
             else
                 result = transform.position;
 
-            if (destination != result)
+            if (destination != result || isFirstMove)
             {
+                isFirstMove = false;
                 destination = result;
                 Move(destination);
             }
@@ -68,7 +77,13 @@ public class Moveable : MonoBehaviour
 
     private void OnDisable()
     {
-        if(followRoutine  != null)
+        if (followRoutine != null)
+            StopCoroutine(followRoutine);
+    }
+
+    private void OnDestroy()
+    {
+        if (followRoutine != null)
             StopCoroutine(followRoutine);
     }
 }

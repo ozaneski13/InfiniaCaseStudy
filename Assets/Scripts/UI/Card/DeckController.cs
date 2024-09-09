@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
 using DG.Tweening;
+using System.Linq;
 
 public class DeckController : MonoBehaviour
 {
@@ -84,7 +85,7 @@ public class DeckController : MonoBehaviour
 
         for (int i = 0; i < neededCount; i++)
         {
-            Card card = deck[0];
+            Card card = deck.FirstOrDefault(card => !card.gameObject.activeInHierarchy);
             card.gameObject.SetActive(true);
             card.ActivateVisual();
             card.OnCardUsed += RePoolCard;
